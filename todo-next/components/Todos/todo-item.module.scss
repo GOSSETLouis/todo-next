@@ -1,0 +1,83 @@
+@mixin todo-bar {
+    &:after {
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 6px;
+      content: "";
+      transition: 0.3s;
+      position: absolute;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.788);
+    }
+    position: relative;
+  }
+  
+  .container {
+    color: red;
+    --todo-radius: 4px;
+    --todo-height: 32px;
+    --todo-icon-size: 24px;
+    &.completed,
+    &.completed:hover {
+      color: black;
+      .name {
+        cursor: default;
+        box-shadow: none;
+        background: lightgrey;
+      }
+    }
+    &:hover,
+    &:focus,
+    &:focus-within {
+      &:not(.completed) {
+        .icon {
+          min-width: var(--todo-icon-size);
+        }
+      }
+    }
+    div {
+      flex: 1 0;
+    }
+    span {
+      &.name {
+        @include todo-bar;
+        padding: 0px 16px;
+        overflow: hidden;
+        user-select: none;
+        min-height: var(--todo-height);
+        line-height: var(--todo-height);
+      }
+      &.icon {
+        &.edit {
+          background-image: url(../../public/edit-outline.svg);
+          width: 30%;
+          height: 100%;
+        }
+        &.cancel {
+          background-image: url(../../public/close-outline.svg);
+        }
+       
+        background-size: 18px;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: var(--todo-icon-size);
+      }
+      &:hover {
+        background-color: rgba(190, 217, 253, 0.7);
+      }
+      cursor: pointer;
+      background-color: bisque;
+      padding:5px;
+      width: 100%;
+      text-align: center;
+      border-radius: var(--todo-radius);
+      box-shadow: 0px 2px 4px 0px rgba(92, 57, 12, 0.4);
+    }
+    gap: 8px;
+    width: 100%;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    display: flex;
+  }

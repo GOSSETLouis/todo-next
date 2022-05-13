@@ -1,0 +1,26 @@
+.container {
+    --btn-border: 0 0 0 2px rgba(0, 0, 0, 0.3) inset;
+    button {
+      &:hover,
+      &:focus,
+      &:active {
+        background: rgb(202, 79, 79);
+      }
+      &:focus {
+        --btn-border: 0 0 0 2px rgba(0, 0, 0, 0.5) inset;
+      }
+      &:active {
+        --btn-border: none;
+        color: rgba(0, 0, 0, 0.5);
+      }
+      border: none;
+      cursor: pointer;
+      padding: 0 16px;
+      min-height: 32px;
+      line-height: 32px;
+      color: rgba(0, 0, 0, 0.7);
+      box-shadow: var(--btn-border);
+      background: rgba(190, 217, 253, 0.7);
+      border-radius: var(--default-radius);
+    }
+  }
